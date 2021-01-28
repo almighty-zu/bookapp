@@ -10,4 +10,8 @@
       bookList: '.books-list',
     },
   };
+
+  const templates = {
+    booksList: Handlebars.compile(document.querySelector(select.templateOf.booksList).innerHTML),
+  };
 }
