@@ -14,4 +14,8 @@
   const templates = {
     booksList: Handlebars.compile(document.querySelector(select.templateOf.booksList).innerHTML),
   };
+
+  const menuContainer = document.querySelector.apply(select.containerOf.bookList);
+
+
 }
