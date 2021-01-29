@@ -8,6 +8,7 @@
     },
     containerOf: {
       bookList: '.books-list',
+      filters: '.filters',
     },
   };
 
@@ -16,20 +17,22 @@
   };
 
   const menuContainer = document.querySelector(select.containerOf.bookList);
+  const filterWrapper = document.querySelector(select.containerOf.filters);
   const allBooks = [];
   const favouriteBooks = [];
+  const filters = [];
 
-  //dodaj nową funkcję render
+
   const render = function(){
-    //wewnątrz render przejdź po każdym elemencie z dataSource.books
+
     for(let book of dataSource.books){
-      //wewnątrz pętli zadbaj o wygenerowanie kodu HTML na podstawie szablonu oraz danych o konkretnej książce
+
       const generatedHTML = templates.bookTemplate(book);
       console.log('generatedHTML', generatedHTML);
-      //na podstawie tego kodu HTML wygeneruj element DOM
+
       const element = utils.createDOMFromHTML(generatedHTML);
       console.log('element', element);
-      //wygenerowany element DOM dołącz jako nowe dziecko DOM do lisy .books-list
+
       menuContainer.appendChild(element);
       allBooks.push(element);
       console.log('allBooks', allBooks);
@@ -57,8 +60,32 @@
           console.log('favouriteBooks', favouriteBooks);
         }
       }
+
+      filterWrapper.addEventListener('click', function(event){
+        event.preventDefault();
+
+        const clickedElement = event.target;
+
+        if(clickedElement.tagName === 'INPUT' && clickedElement.type === 'checkbox' && clickedElement.name === 'filter'){
+          console.log(clickedElement.value);
+          console.log(filters);
+          if(clickedElement.checked){
+            filters.push(clickedElement.value);
+            filterBooks();
+          } else {
+            filters.splice(filters.indexOf(clickedElement.value), 1);
+            filterBooks();
+          }
+        }
+      });
     });
+
+
   };
+
+  filterBooks = function(){
+
+  }
 
   render();
   initActions();
