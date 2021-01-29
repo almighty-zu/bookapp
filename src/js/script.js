@@ -9,15 +9,6 @@
     containerOf: {
       bookList: '.books-list',
     },
-    class: {
-      favouriteBook: 'favorite',
-    },
-    book: {
-      bookImage: '.book__image',
-    },
-    attribute: {
-      dataId: '.data-id',
-    },
   };
 
   const templates = {
@@ -51,18 +42,18 @@
 
       const clickedElement = event.target.offsetParent;
       console.log('clickedElement', clickedElement);
-      console.log(!clickedElement.classList.contains(select.book.bookImage));
+      console.log(!clickedElement.classList.contains('.book__image'));
 
-      if(!clickedElement.classList.contains(select.book.bookImage)){
-        const id = clickedElement.getAttribute(select.attribute.dataId);
+      if(!clickedElement.classList.contains('.book__image')){
+        const id = clickedElement.getAttribute('data-id');
         console.log('id', id);
-        if(!clickedElement.classList.contains(select.class.favouriteBook)){
-          clickedElement.classList.add(select.class.favouriteBook);
+        if(!clickedElement.classList.contains('favorite')){
           favouriteBooks.push(id);
+          clickedElement.classList.add('favorite');
           console.log('favouriteBooks', favouriteBooks);
         } else {
-          clickedElement.classList.remove(select.class.favouriteBook);
-          favouriteBooks.splice(favouriteBooks.indexOf(id));
+          favouriteBooks.splice(favouriteBooks.indexOf(id), 1);
+          clickedElement.classList.remove('favorite');
           console.log('favouriteBooks', favouriteBooks);
         }
       }
