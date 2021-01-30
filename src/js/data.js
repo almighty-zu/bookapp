@@ -7,7 +7,6 @@ dataSource.books = [
     price: 20,
     rating: 8,
     image: 'images/books/1.jpg',
-    //ratingWidth: 80,
     details: {
       adults: true,
       nonFiction: false
@@ -19,7 +18,6 @@ dataSource.books = [
     price: 15,
     rating: 9.2,
     image: 'images/books/2.jpg',
-    //ratingWidth: 92,
     details: {
       adults: false,
       nonFiction: true
@@ -31,7 +29,6 @@ dataSource.books = [
     image: 'images/books/3.jpg',
     price: 20,
     rating: 7.8,
-    //ratingWidth: 78,
     details: {
       adults: false,
       nonFiction: true
@@ -43,7 +40,6 @@ dataSource.books = [
     image: 'images/books/4.jpg',
     price: 40,
     rating: 8.2,
-    //ratingWidth: 82,
     details: {
       adults: false,
       nonFiction: true
@@ -54,7 +50,6 @@ dataSource.books = [
     name: 'Of Mice and Men',
     image: 'images/books/5.jpg',
     rating: 6.4,
-    //ratingWidth: 64,
     price: 40,
     details: {
       adults: false,
